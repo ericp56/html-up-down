@@ -1,0 +1,131 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1.5rem 6rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.intro {
+  text-align: left;
+}
+
+.intro h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 0.02em;
+}
+
+.intro p {
+  margin: 0;
+  color: #d0d0d0;
+  max-width: 52ch;
+}
+
+.game-shell {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.square {
+  width: min(320px, 70vw);
+  aspect-ratio: 1;
+  border-radius: 32px;
+  background: #050505;
+  border: 4px solid #272727;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.square-label {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.square-selected {
+  border-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.8), inset 0 0 60px rgba(255, 255, 255, 0.08);
+}
+
+.action-panel {
+  min-width: 240px;
+  max-width: 320px;
+  border-radius: 24px;
+  padding: 1.5rem;
+  background: #0d0d0d;
+  border: 2px solid #2e2e2e;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.action-heading {
+  margin: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #8a8a8a;
+}
+
+.action-direction {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  color: #fef08a;
+}
+
+.action-hint {
+  margin: 0;
+  color: #c7c7c7;
+  font-size: 1rem;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translate(-50%, 40px);
+  padding: 1rem 2.5rem;
+  border-radius: 999px;
+  background: #28a745;
+  color: #04250d;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease, transform 150ms ease;
+}
+
+.toast-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 768px) {
+  .game-shell {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .action-panel {
+    width: 100%;
+    max-width: 360px;
+  }
+}
